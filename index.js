@@ -13,7 +13,6 @@ const inputFieldEl = document.getElementById("input-field")
 const addButtonEl = document.getElementById("add-button")
 const shoppingListEl = document.getElementById("shopping-list")
 //son
-// Crée un nouvel élément audio et spécifie le fichier audio
 const jump = new Audio('sound/jump-luffy.mp3');
 
 addButtonEl.addEventListener("click", function () {
@@ -24,12 +23,6 @@ addButtonEl.addEventListener("click", function () {
     emptyField()
 })
 
-/*
-Challenge:
-Call the onValue function with
-shoppingListInDB as the first argument and
-function(snapshot) {} as the second argument
-*/
 
 onValue(shoppingListInDB, function (snapshot) {
 
@@ -44,12 +37,6 @@ onValue(shoppingListInDB, function (snapshot) {
         for (let i = 0; i < shopList.length; i++) {
             let currentItem = shopList[i]
 
-            // Challenge: Make two let variables:
-            let currentItemID = currentItem[0]
-            let currentItemValue = currentItem[1]
-
-            // currentItemID and currentItemValue and use currentItem to set both of
-            // them equal to the correct values.
             list(currentItem)
         }
     } else {
@@ -62,7 +49,6 @@ function clearShoppingListEl() {
 }
 
 function emptyField() {
-    // Challenge: Refactor the line below into its own function.
     inputFieldEl.value = ""
 
 }
@@ -74,8 +60,8 @@ function list(item) {
     let newEl = document.createElement("li")
 
     newEl.textContent = itemValue
-    // Challenge: Attach an event listener to newEl and make it so you console log the id of the item when it's pressed.
     newEl.addEventListener("click", function () {
+
 
         // Joue le son
         jump.play();
